@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Challenge Id</th>
       <th>Title</th>
       <th>Description</th>
       <th>Tags</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @hacks.each do |hack| %>
       <tr>
+        <td><%= hack.id %></td>
         <td><%= hack.title %></td>
         <td><%= hack.description %></td>
         <td><%= hack.tags %></td>
