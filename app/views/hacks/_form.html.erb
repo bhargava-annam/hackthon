@@ -1,0 +1,37 @@
+<%= form_with(model: hack, local: true) do |form| %>
+  <% if hack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hack.errors.count, "error") %> prohibited this hack from being saved:</h2>
+
+      <ul>
+      <% hack.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title, id: :hack_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :hack_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tags %>
+    <%= form.select :tags, options_for_select([['DP','DP'],['BFS','BFS'],['DFS','DFS'],['Recursion','Recursion'],['Array','Array'],['String','String'],['Graph','Graph']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :user_id, id: :hack_user_id, value: current_user.id, type: :hidden %>
+  </div>
+  
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
