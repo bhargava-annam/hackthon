@@ -18,6 +18,12 @@ class HacksController < ApplicationController
     redirect_to hacks_path
   end
 
+  def follow
+    @hack = Hack.find(params[:id])
+    current_user.follow(@hack)
+    redirect_to hacks_path
+  end
+
   # GET /hacks/new
   def new
     @hack = current_user.hacks.build
@@ -65,8 +71,12 @@ class HacksController < ApplicationController
   end
 
   def correct_user
-    @hack = current_user.hacks.find_by(id: params[:id])
-    redirect_to hacks_path, notice: 'Not Authorised' if @hack.nil?
+    @hack = Hack.find(params[:id])
+    if current_user.following?(@hack)
+      
+    elsif current_user.hacks.find_by(id: params[:id]).nil?
+      redirect_to hacks_path, notice: 'Not Authorised'
+    end
   end
   
   private

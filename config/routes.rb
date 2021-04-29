@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   resources :hacks do
     member do
       put :like, to:'hacks#upvote'
+      put :follow, to:'hacks#follow'
     end
   end
+  
   get 'home/index'
   get 'home/about'
   root 'hacks#index'
