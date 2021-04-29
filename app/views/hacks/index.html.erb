@@ -8,8 +8,10 @@
       <th>Challenge Id</th>
       <th>Title</th>
       <th>Description</th>
+      <th>Upvote</th>
+      <th>Created By</th>
+      <th>Created AT</th>
       <th>Tags</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,8 +22,13 @@
         <td><%= hack.id %></td>
         <td><%= hack.title %></td>
         <td><%= hack.description %></td>
-        <td><%= hack.tags %></td>
+        <td><%= hack.get_upvotes.size %>&nbsp&nbsp&nbsp&nbsp&nbsp
+        <% if current_user.id != hack.user_id%>
+        <%= link_to "+" , like_hack_path(hack),method: :put %>
+        <%end%></td>
         <td><%= hack.user_id %></td>
+        <td><%= hack.created_at %></td>
+        <td><%= hack.tags %></td>
         <td><%= link_to 'Show', hack %></td>
         <td><%= link_to 'Edit', edit_hack_path(hack) %></td>
         <td><%= link_to 'Destroy', hack, method: :delete, data: { confirm: 'Are you sure?' } %></td>

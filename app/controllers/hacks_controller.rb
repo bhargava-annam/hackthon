@@ -1,6 +1,6 @@
 class HacksController < ApplicationController
   before_action :set_hack, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index , :show]
+  before_action :authenticate_user!
   before_action :correct_user, only: [:edit ,:update, :destroy]
   # GET /hacks or /hacks.json
   def index
@@ -9,6 +9,12 @@ class HacksController < ApplicationController
 
   # GET /hacks/1 or /hacks/1.json
   def show
+  end
+
+  def upvote
+    @hack = Hack.find(params[:id])
+    @hack.upvote_by(current_user)
+    redirect_to hacks_path
   end
 
   # GET /hacks/new
@@ -61,7 +67,7 @@ class HacksController < ApplicationController
     @hack = current_user.hacks.find_by(id: params[:id])
     redirect_to hacks_path, notice: 'Not Authorised' if @hack.nil?
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hack
