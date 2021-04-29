@@ -23,7 +23,7 @@
 
   <div class="field tag">
     <%= form.label :tags ,class:'text-center' %>
-    <%= form.select :tags, options_for_select([['DP','DP'],['BFS','BFS'],['DFS','DFS'],['Recursion','Recursion'],['Array','Array'],['String','String'],['Graph','Graph']]) %>
+    <%= form.select(:tags, options_for_select([['DP','DP'],['BFS','BFS'],['DFS','DFS'],['Recursion','Recursion'],['Array','Array'],['String','String'],['Graph','Graph']]) , {}, {class: "btn btn  btn-lg dropdown-toggle"})%>
   </div>
 
   <div class="field">
@@ -35,8 +35,8 @@
   </div>
   
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions ">
+    <%= form.submit 'Create Challenge', :class => 'btn btn-primary'%>
   </div>
   </div>
 <% end %>
