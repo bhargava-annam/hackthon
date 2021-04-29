@@ -5,6 +5,7 @@ class HacksController < ApplicationController
   # GET /hacks or /hacks.json
   def index
     @hacks = Hack.all
+    @hack = current_user.hacks.build
   end
 
   # GET /hacks/1 or /hacks/1.json
@@ -32,7 +33,7 @@ class HacksController < ApplicationController
 
     respond_to do |format|
       if @hack.save
-        format.html { redirect_to @hack, notice: "Hack was successfully created." }
+        format.html { redirect_to root_path, notice: "Hack was successfully created." }
         format.json { render :show, status: :created, location: @hack }
       else
         format.html { render :new, status: :unprocessable_entity }

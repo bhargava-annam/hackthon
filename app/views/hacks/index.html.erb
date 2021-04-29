@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class='d-flex flex-column'>
+<%= render 'form', hack: @hack %>
+</div>
+
 <h1>Hacks</h1>
 
-<table class="table table-striped">
-  <thead>
+<table class="table table-striped ">
+  <thead class='bg-primary'>
     <tr>
       <th>Challenge Id</th>
       <th>Title</th>
