@@ -12,7 +12,7 @@ Rails.application.configure do
   # Show full error reports.
   
   #Error page make it false 
-  config.consider_all_requests_local = false
+  config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?

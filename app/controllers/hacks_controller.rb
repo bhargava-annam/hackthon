@@ -87,6 +87,6 @@ class HacksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hack_params
-      params.require(:hack).permit(:title, :description,:tags,:user_id)
+      params.require(:hack).permit(:title, :description,:tags,:user_id,:username)
     end
 end

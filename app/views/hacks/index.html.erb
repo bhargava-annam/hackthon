@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class='d-flex flex-column'>
+<div>
 <%= render 'form', hack: @hack %>
 </div>
 
@@ -31,11 +31,11 @@
         <% if current_user.id != hack.user_id%>
         <%= link_to "+" , like_hack_path(hack),method: :put %>
         <%end%></td>
-        <td><%= hack.user_id %></td>
+        <td><%= hack.username%></td>
         <td><%= hack.created_at %></td>
         <td><%= hack.tags %></td>
         <td><%hack.followers.each do  |i|%>
-          <%=i.email %></br>
+          <%=i.username %></br>
         <%end%> </td>
         <td>
         <% if current_user.id != hack.user_id%>
