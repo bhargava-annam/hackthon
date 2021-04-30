@@ -15,6 +15,21 @@
  */
 
 
- .ab{
+.ab{
      justify-content: space-evenly;
  }
+.main{
+    min-height: calc( 110vh - 211px - 58px);
+}
+footer {
+    clear: both;
+    position: relative;
+    height: 50px;
+}
+th{
+    color: cornsilk ;
+}
+.logins{
+   padding-left: 40%;
+   padding-top: 5%;
+}

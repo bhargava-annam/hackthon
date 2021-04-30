@@ -10,5 +10,6 @@
   <%= @hack.description %>
 </p>
 
-<%= link_to 'Edit', edit_hack_path(@hack) %> |
-<%= link_to 'Back', hacks_path %>
+<%= link_to 'Edit', edit_hack_path(@hack) ,class:'btn btn-secondary'%> |
+<%= link_to 'Back', hacks_path ,class:'btn btn-secondary'%>
+<%= link_to 'Destroy', @hack, method: :delete, data: { confirm: 'Are you sure?' } ,class:'btn btn-danger'%>

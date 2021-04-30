@@ -4,7 +4,7 @@ class HacksController < ApplicationController
   before_action :correct_user, only: [:edit ,:update, :destroy]
   # GET /hacks or /hacks.json
   def index
-    @hacks = Hack.all
+    @hacks = Hack.order(params[:sort])
     @hack = current_user.hacks.build
   end
 
