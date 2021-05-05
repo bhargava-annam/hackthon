@@ -1,0 +1,2 @@
+      invoke  active_record
+      remove    db/migrate/20210505103651_add_index_to_hacks.rb

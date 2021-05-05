@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210429155050) do
+ActiveRecord::Schema.define(version: 20210505104712) do
 
   create_table "follows", force: :cascade do |t|
     t.string "followable_type", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20210429155050) do
     t.string "tags"
     t.integer "user_id"
     t.string "username"
+    t.index ["title"], name: "index_hacks_on_title", unique: true
     t.index ["user_id"], name: "index_hacks_on_user_id"
   end
 

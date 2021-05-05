@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :hacks
   acts_as_follower
+  validates :username, presence: true
+  validates :email, presence: true
 
   def self.find_for_database_authentication warden_condition
     conditions = warden_condition.dup
