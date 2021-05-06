@@ -4,8 +4,16 @@
 <%= render 'form', hack: @hack %>
 </div>
 <br/><br/>
-<h1 >Challenges</h1>
+<div class='d-flex flex justify-content-between'>
+<h1>Challenges</h1>
 
+<%= form_tag(hacks_path, :method => "get", id: "search-form") do %>
+  <br/>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+  <%= submit_tag "Search" %>
+<% end %>
+</div>
+<br/>
 <table class="table table-striped ">
   <thead class='bg-primary'>
     <tr>

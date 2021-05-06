@@ -28,21 +28,21 @@ context 'validation tests' do
     expect(post).to be_valid
   end
 
-  it 'has a title of length in between 4-10 characters long' do
+  it 'has a title of length in between 6-20 characters long' do
     post = Hack.new(
       title: '123456',
       description: 'A Valid Body',
       user: current_user )
-      expect(post.title.length).to be_between(4,10).inclusive 
+      expect(post.title.length).to be_between(6,20).inclusive 
   end
 
-  it 'has a description of length in between 5-15 characters' do
+  it 'has a description of length in between 6-20 characters' do
     post = Hack.new(
       title: '1234',
       description: '123456',
       user: current_user
     )
-    expect(post.description.length).to be_between(5,15).inclusive
+    expect(post.description.length).to be_between(6,20).inclusive
 
   end
 
